@@ -11,6 +11,9 @@ using Microsoft.VisualBasic;
 using TP4_Simulacion;
 using TP4;
 using static TP4.ProbabilidadClimaAcum;
+using TP4.Interfaz;
+using TP4.Filas;
+using System.Diagnostics;
 
 namespace TP4_Simulacion
 {
@@ -19,13 +22,11 @@ namespace TP4_Simulacion
         private double costoAdicionalPorUnidad;
         private double costoCubrirFaltantePorDocena;
         private double valorVentaCementerioPorUnidad;
-        private int demandaDiaAnterior = -1;
+        private int demandaDia0 = -1;
 
         public Form1()
         {
             InitializeComponent();
-            Console.WriteLine("DDKWPDOWKADP");
-            System.Diagnostics.Debug.WriteLineIf(true, "DAODWDAW");
             
         }
 
@@ -37,7 +38,7 @@ namespace TP4_Simulacion
             {
                 string demandaDiaAnterior = Interaction.InputBox("Ingrese la demanda del dia anterior:", "Demanda dia anterior",
                     "8").Replace('.', ',');
-                if(!Int32.TryParse(demandaDiaAnterior, out this.demandaDiaAnterior))
+                if(!Int32.TryParse(demandaDiaAnterior, out this.demandaDia0))
                 {
                     MessageBox.Show("Error Parametro Invalido (Ingrese un ENTERO)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -93,31 +94,132 @@ namespace TP4_Simulacion
 
         private void OnBtnGenerarClick(object sender, EventArgs e)
         {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            gridPeru.Rows.Clear();
+            Random random = new Random();
             //code here
-
-
             int.TryParse(txtDiasAGenerar.Text, out int cantidadDiasAGenerar);
-
             int.TryParse(txtCantDocenas.Text, out int cantidadAComprar);
+            int.TryParse(txtDiaDesde.Text, out int diaDesde);
+            double.TryParse(txtPrecioCompraDocena.Text, out double precioCompraDocena);
+            double.TryParse(txtPrecioVentaRosa.Text, out double precioPorRosa);
+            double precioPorDocena = precioPorRosa * 12;
+            double precioCementerio = this.valorVentaCementerioPorUnidad * 12;
+            double costoAdicional = this.costoAdicionalPorUnidad * 12;
+
 
             if(chkDemandaDiaAnterior.Checked)
             {
-                cantidadAComprar = demandaDiaAnterior;
+                cantidadAComprar = demandaDia0;
             }
+            
+            IFila anterior = null;
+            IFila actual = null;
 
-            Fila anterior;
-            Fila actual;
             for (int dia = 1; dia <= cantidadDiasAGenerar; dia++)
             {
-                if(chkDemandaDiaAnterior.Checked)
+
+                if (rdbSinCostoAdicional.Checked && rdbDesechar.Checked)
                 {
-                   // cantidadAComprar = anterior.demanda;
+                    actual = new FilaSinCostoAdicionalDesechar(dia, random, cantidadAComprar, precioCompraDocena, precioPorDocena);
+                }
+                else if (rdbSinCostoAdicional.Checked && rdbVenderCementerio.Checked)
+                {
+                    actual = new FilaSinCostoAdicionalVenderCementerio(dia, random, cantidadAComprar, precioCompraDocena, precioPorDocena, precioCementerio);
+                }
+                else if(rdbConCostoAdicional.Checked && rdbDesechar.Checked)
+                {
+                    actual = new FilaConCostoAdicionalDesechar(dia, random, cantidadAComprar, precioCompraDocena, precioPorDocena, costoAdicional);
+                }
+                else if(rdbConCostoAdicional.Checked && rdbVenderCementerio.Checked)
+                {
+                    actual = new FilaConCostoAdicionalVenderCementerio(dia, random, cantidadAComprar, precioCompraDocena, precioPorDocena, costoAdicional, precioCementerio);
+                }
+                else if(rdbCubrirFaltante.Checked && rdbDesechar.Checked)
+                {
+                    actual = new FilaCubrirFaltanteDesechar(dia, random, cantidadAComprar, precioCompraDocena, precioPorDocena, this.costoCubrirFaltantePorDocena);
+                }
+                else
+                {
+                    actual = new FilaCubrirFaltanteVenderCementerio(dia, random, cantidadAComprar, precioCompraDocena, precioPorDocena, this.costoCubrirFaltantePorDocena, precioCementerio);
                 }
 
 
+
+                if (dia == 1)
+                {
+                    actual.acumGanancia = actual.gananciaDiariaNeta;
+                }
+                else
+                {
+                    actual.acumGanancia += anterior.acumGanancia + actual.gananciaDiariaNeta;
+                }
+                anterior = actual;
+
+                if ((dia >= diaDesde && dia < diaDesde+100) || dia == cantidadDiasAGenerar)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    DataGridViewTextBoxCell colDia = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colRNDClima = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colClima = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colRNDDemanda = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colDemanda = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colCantVenta = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colCantSobrante = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colCantFaltante = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colIngresoDiario = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colIngresoSobrante = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colGastoCompra = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colGastoFaltante = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colGananciaDiariaNeta = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell colGananciaAcum = new DataGridViewTextBoxCell();
+
+                    colDia.Value = dia;
+                    colRNDClima.Value = actual.RNDClima;
+                    colClima.Value = actual.GetClima();
+                    colRNDDemanda.Value = actual.RNDDemanda;
+                    colDemanda.Value = actual.demanda;
+                    colCantVenta.Value = actual.cantVenta;
+                    colCantSobrante.Value = actual.cantSobrante;
+                    colCantFaltante.Value = actual.cantFaltante;
+                    colIngresoDiario.Value = "$ " + actual.ingresoDiario;
+                    colIngresoSobrante.Value = "$ " + actual.ingresoSobrante;
+                    colGastoCompra.Value = "$ " + actual.costoCompra;
+                    colGastoFaltante.Value = "$ " + actual.costoFaltante;
+                    colGananciaDiariaNeta.Value = "$ " + actual.gananciaDiariaNeta;
+                    colGananciaAcum.Value = "$ " + actual.acumGanancia;
+
+                    fila.Cells.Add(colDia);
+                    fila.Cells.Add(colRNDClima);
+                    fila.Cells.Add(colClima);
+                    fila.Cells.Add(colRNDDemanda);
+                    fila.Cells.Add(colDemanda);
+                    fila.Cells.Add(colCantVenta);
+                    fila.Cells.Add(colCantSobrante);
+                    fila.Cells.Add(colCantFaltante);
+                    fila.Cells.Add(colIngresoDiario);
+                    fila.Cells.Add(colIngresoSobrante);
+                    fila.Cells.Add(colGastoCompra);
+                    fila.Cells.Add(colGastoFaltante);
+                    fila.Cells.Add(colGananciaDiariaNeta);
+                    fila.Cells.Add(colGananciaAcum);
+
+                    gridPeru.Rows.Add(fila);
+
+                }
+                
+                if (chkDemandaDiaAnterior.Checked)
+                {
+                    cantidadAComprar = actual.demanda;
+                }
+                
+                
             }
-
-
+            watch.Stop();
+            lblTimer.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                watch.Elapsed.Hours, watch.Elapsed.Minutes, watch.Elapsed.Seconds,
+                watch.Elapsed.Milliseconds / 10);
         }
     }
 }

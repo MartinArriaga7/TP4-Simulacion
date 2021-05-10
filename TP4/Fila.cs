@@ -3,35 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP4.Interfaz;
 using static TP4.ProbabilidadClimaAcum;
 
 namespace TP4
 {
-    public class Fila
+    public class Fila : IFila
     {
         public int dia { get; set; }
-        public int demanda { get; set; }
-        public int venta { get; set; }
-        public int faltante { get; set; }
-        public int sobrante { get; set; }
-        public double acumGanancia { get; set; }
-        public double gananciaDiaria { get; set; }
-        public double gananciaSobrante { get; set; }
-        public double costoCompra { get; set; }
-        public double gananciaDiariaNeta { get; set; }
-        public double costoAdicional { get; set; }
+        public double RNDClima { get; }
         public climas clima { get; set; }
+        public double RNDDemanda { get; }
+        public int demanda { get; set; }
+        public int cantVenta { get; set; }
+        public int cantSobrante { get; set; }
+        public int cantFaltante { get; set; }
+        public double ingresoDiario { get; set; }
+        public double ingresoSobrante { get; set; }
+        public double costoCompra { get; set; }
+        public double costoFaltante { get; set; }
+        public double gananciaDiariaNeta { get; set; }
+        public double acumGanancia { get; set; }
+
 
         public int cantAComprar { get; set; }
-        public double RNDClima { get; }
-        public double RNDDemanda { get; }
+        public double precioPorDocena { get; set; }
+        
+        public string GetClima()
+        {
+            return this.clima == climas.Soleado ? "Soleado" : "Nublado";
+        }
 
-
-        public Fila(int dia, int cantAComprar, double costoComprarXDocena )
+        public Fila(int dia, Random random, int cantAComprar, double costoComprarXDocena,  double precioPorDocena)
         {
             this.dia = dia;
             this.cantAComprar = cantAComprar;
-            Random random = new Random();
+            this.precioPorDocena = precioPorDocena;
 
             RNDClima = Math.Truncate(random.NextDouble() * 100) / 100;
             if (ProbabilidadClimaAcum.GetClima(RNDClima) == ProbabilidadClimaAcum.climas.Soleado) clima = ProbabilidadClimaAcum.climas.Soleado;
@@ -43,16 +50,16 @@ namespace TP4
 
             if(cantAComprar >= demanda)
             {
-                sobrante = cantAComprar - demanda;
-                faltante = 0;
+                cantVenta = demanda;
+                cantSobrante = cantAComprar - demanda;
+                cantFaltante = 0;
             }
             else
             {
-                sobrante = 0;
-                faltante = demanda - cantAComprar;
+                cantVenta = cantAComprar;
+                cantSobrante = 0;
+                cantFaltante = demanda - cantAComprar;
             }
-            costoCompra = cantAComprar * costoComprarXDocena;
-
         }
 
 

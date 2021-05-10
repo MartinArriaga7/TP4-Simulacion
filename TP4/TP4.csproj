@@ -48,12 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fila.cs" />
+    <Compile Include="Filas\FilaConCostoAdicionalDesechar.cs" />
+    <Compile Include="Filas\FilaConCostoAdicionalVenderCementerio.cs" />
+    <Compile Include="Filas\FilaCubrirFaltanteDesechar.cs" />
+    <Compile Include="Filas\FilaCubrirFaltanteVenderCementerio.cs" />
+    <Compile Include="Filas\FilaSinCostoAdicionalDesechar.cs" />
+    <Compile Include="Filas\FilaSinCostoAdicionalVenderCementerio.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaz\IFila.cs" />
     <Compile Include="ProbabilidadClimaAcum.cs" />
     <Compile Include="ProbabilidadDemandaDiaNubladoAcum.cs" />
     <Compile Include="ProbabilidadDemandaDiaSoleadoAcum.cs" />
