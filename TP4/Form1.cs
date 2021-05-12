@@ -27,7 +27,9 @@ namespace TP4_Simulacion
         public Form1()
         {
             InitializeComponent();
-            
+            this.gridRosas.RowsDefaultCellStyle.BackColor = Color.White;
+            this.gridRosas.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
+
         }
 
         private void OnCheckBoxDemandaChange(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace TP4_Simulacion
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            gridPeru.Rows.Clear();
+            gridRosas.Rows.Clear();
             Random random = new Random();
             //code here
             int.TryParse(txtDiasAGenerar.Text, out int cantidadDiasAGenerar);
@@ -183,12 +185,12 @@ namespace TP4_Simulacion
                     colCantVenta.Value = actual.cantVenta;
                     colCantSobrante.Value = actual.cantSobrante;
                     colCantFaltante.Value = actual.cantFaltante;
-                    colIngresoDiario.Value = "$ " + actual.ingresoDiario;
-                    colIngresoSobrante.Value = "$ " + actual.ingresoSobrante;
-                    colGastoCompra.Value = "$ " + actual.costoCompra;
-                    colGastoFaltante.Value = "$ " + actual.costoFaltante;
-                    colGananciaDiariaNeta.Value = "$ " + actual.gananciaDiariaNeta;
-                    colGananciaAcum.Value = "$ " + actual.acumGanancia;
+                    colIngresoDiario.Value = actual.ingresoDiario.ToString("F2") + " $";
+                    colIngresoSobrante.Value = actual.ingresoSobrante.ToString("F2") + " $";
+                    colGastoCompra.Value = actual.costoCompra.ToString("F2") + " $";
+                    colGastoFaltante.Value = actual.costoFaltante.ToString("F2") + " $";
+                    colGananciaDiariaNeta.Value = actual.gananciaDiariaNeta.ToString("F2") + " $";
+                    colGananciaAcum.Value = actual.acumGanancia.ToString("F2") + " $";
 
                     fila.Cells.Add(colDia);
                     fila.Cells.Add(colRNDClima);
@@ -205,8 +207,7 @@ namespace TP4_Simulacion
                     fila.Cells.Add(colGananciaDiariaNeta);
                     fila.Cells.Add(colGananciaAcum);
 
-                    gridPeru.Rows.Add(fila);
-
+                    gridRosas.Rows.Add(fila);
                 }
                 
                 if (chkDemandaDiaAnterior.Checked)
@@ -216,6 +217,9 @@ namespace TP4_Simulacion
                 
                 
             }
+
+            this.gridRosas.Rows[this.gridRosas.Rows.Count -1].DefaultCellStyle.BackColor = Color.Gold;
+
             watch.Stop();
             lblTimer.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                 watch.Elapsed.Hours, watch.Elapsed.Minutes, watch.Elapsed.Seconds,

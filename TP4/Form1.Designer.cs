@@ -49,7 +49,12 @@ namespace TP4_Simulacion
             this.label2 = new System.Windows.Forms.Label();
             this.txtDiasAGenerar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.gridPeru = new System.Windows.Forms.DataGridView();
+            this.gridRosas = new System.Windows.Forms.DataGridView();
+            this.txtPrecioVentaRosa = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.colDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRNDClima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colClima = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,15 +69,10 @@ namespace TP4_Simulacion
             this.colGastoFaltante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGananciaDiaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGananciaAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPrecioVentaRosa = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblTimer = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupPoliticaCompra.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPeru)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridRosas)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -229,10 +229,10 @@ namespace TP4_Simulacion
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(979, 171);
+            this.btnGenerar.Location = new System.Drawing.Point(722, 177);
             this.btnGenerar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(145, 36);
+            this.btnGenerar.Size = new System.Drawing.Size(232, 49);
             this.btnGenerar.TabIndex = 6;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -272,10 +272,14 @@ namespace TP4_Simulacion
             this.label3.TabIndex = 9;
             this.label3.Text = "Cantidad Dias a Generar: ";
             // 
-            // gridPeru
+            // gridRosas
             // 
-            this.gridPeru.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPeru.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridRosas.AllowUserToAddRows = false;
+            this.gridRosas.AllowUserToDeleteRows = false;
+            this.gridRosas.AllowUserToResizeColumns = false;
+            this.gridRosas.AllowUserToResizeRows = false;
+            this.gridRosas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridRosas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDia,
             this.colRNDClima,
             this.colClima,
@@ -290,13 +294,61 @@ namespace TP4_Simulacion
             this.colGastoFaltante,
             this.colGananciaDiaria,
             this.colGananciaAcum});
-            this.gridPeru.Location = new System.Drawing.Point(17, 259);
-            this.gridPeru.Name = "gridPeru";
-            this.gridPeru.RowHeadersVisible = false;
-            this.gridPeru.RowHeadersWidth = 51;
-            this.gridPeru.RowTemplate.Height = 24;
-            this.gridPeru.Size = new System.Drawing.Size(1607, 543);
-            this.gridPeru.TabIndex = 11;
+            this.gridRosas.Location = new System.Drawing.Point(17, 259);
+            this.gridRosas.Name = "gridRosas";
+            this.gridRosas.RowHeadersVisible = false;
+            this.gridRosas.RowHeadersWidth = 51;
+            this.gridRosas.RowTemplate.Height = 24;
+            this.gridRosas.Size = new System.Drawing.Size(1607, 543);
+            this.gridRosas.TabIndex = 11;
+            // 
+            // txtPrecioVentaRosa
+            // 
+            this.txtPrecioVentaRosa.Location = new System.Drawing.Point(167, 48);
+            this.txtPrecioVentaRosa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioVentaRosa.Name = "txtPrecioVentaRosa";
+            this.txtPrecioVentaRosa.Size = new System.Drawing.Size(96, 22);
+            this.txtPrecioVentaRosa.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Precio venta rosa:";
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Location = new System.Drawing.Point(1110, 168);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(0, 17);
+            this.lblTimer.TabIndex = 14;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.txtPrecioCompraDocena);
+            this.groupBox3.Controls.Add(this.txtPrecioVentaRosa);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Location = new System.Drawing.Point(17, 118);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(291, 108);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Politica Precio";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(192, 25);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Ejercicio 3 - Rosas";
             // 
             // colDia
             // 
@@ -305,7 +357,7 @@ namespace TP4_Simulacion
             this.colDia.MinimumWidth = 6;
             this.colDia.Name = "colDia";
             this.colDia.ReadOnly = true;
-            this.colDia.Width = 50;
+            this.colDia.Width = 55;
             // 
             // colRNDClima
             // 
@@ -368,7 +420,6 @@ namespace TP4_Simulacion
             this.colIngresoDiario.MinimumWidth = 6;
             this.colIngresoDiario.Name = "colIngresoDiario";
             this.colIngresoDiario.ReadOnly = true;
-            this.colIngresoDiario.Width = 125;
             // 
             // colIngresoSobrante
             // 
@@ -376,7 +427,6 @@ namespace TP4_Simulacion
             this.colIngresoSobrante.MinimumWidth = 6;
             this.colIngresoSobrante.Name = "colIngresoSobrante";
             this.colIngresoSobrante.ReadOnly = true;
-            this.colIngresoSobrante.Width = 125;
             // 
             // colGastoCompra
             // 
@@ -384,7 +434,7 @@ namespace TP4_Simulacion
             this.colGastoCompra.MinimumWidth = 6;
             this.colGastoCompra.Name = "colGastoCompra";
             this.colGastoCompra.ReadOnly = true;
-            this.colGastoCompra.Width = 125;
+            this.colGastoCompra.Width = 105;
             // 
             // colGastoFaltante
             // 
@@ -392,7 +442,7 @@ namespace TP4_Simulacion
             this.colGastoFaltante.MinimumWidth = 6;
             this.colGastoFaltante.Name = "colGastoFaltante";
             this.colGastoFaltante.ReadOnly = true;
-            this.colGastoFaltante.Width = 125;
+            this.colGastoFaltante.Width = 105;
             // 
             // colGananciaDiaria
             // 
@@ -410,54 +460,6 @@ namespace TP4_Simulacion
             this.colGananciaAcum.ReadOnly = true;
             this.colGananciaAcum.Width = 125;
             // 
-            // txtPrecioVentaRosa
-            // 
-            this.txtPrecioVentaRosa.Location = new System.Drawing.Point(167, 48);
-            this.txtPrecioVentaRosa.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrecioVentaRosa.Name = "txtPrecioVentaRosa";
-            this.txtPrecioVentaRosa.Size = new System.Drawing.Size(96, 22);
-            this.txtPrecioVentaRosa.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Precio venta rosa:";
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.Location = new System.Drawing.Point(1231, 29);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(0, 17);
-            this.lblTimer.TabIndex = 14;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.txtPrecioCompraDocena);
-            this.groupBox3.Controls.Add(this.txtPrecioVentaRosa);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(17, 118);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(291, 108);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Politica Precio";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 25);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Ejercicio 3 - Rosas";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -466,7 +468,7 @@ namespace TP4_Simulacion
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lblTimer);
-            this.Controls.Add(this.gridPeru);
+            this.Controls.Add(this.gridRosas);
             this.Controls.Add(this.txtDiasAGenerar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnGenerar);
@@ -484,7 +486,7 @@ namespace TP4_Simulacion
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPeru)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridRosas)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -513,10 +515,12 @@ namespace TP4_Simulacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDiasAGenerar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView gridPeru;
+        private System.Windows.Forms.DataGridView gridRosas;
         private System.Windows.Forms.TextBox txtPrecioVentaRosa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRNDClima;
         private System.Windows.Forms.DataGridViewTextBoxColumn colClima;
@@ -531,8 +535,6 @@ namespace TP4_Simulacion
         private System.Windows.Forms.DataGridViewTextBoxColumn colGastoFaltante;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGananciaDiaria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGananciaAcum;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
     }
 }
 
