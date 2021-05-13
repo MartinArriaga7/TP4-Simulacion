@@ -10,7 +10,6 @@ namespace TP4.Filas
     {
         public FilaCubrirFaltanteDesechar(int dia, Random random, int cantAComprar, double costoComprarXDocena, double precioPorDocena, double costoCubrirFaltante) : base(dia, random, cantAComprar, costoComprarXDocena, precioPorDocena)
         {
-
             this.ingresoDiario = this.cantVenta * this.precioPorDocena;
             this.costoFaltante = 0;
             if (this.demanda > this.cantVenta)

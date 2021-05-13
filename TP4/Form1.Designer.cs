@@ -82,11 +82,9 @@ namespace TP4_Simulacion
             this.groupPoliticaCompra.Controls.Add(this.label1);
             this.groupPoliticaCompra.Controls.Add(this.txtCantDocenas);
             this.groupPoliticaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPoliticaCompra.Location = new System.Drawing.Point(17, 56);
-            this.groupPoliticaCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.groupPoliticaCompra.Location = new System.Drawing.Point(13, 46);
             this.groupPoliticaCompra.Name = "groupPoliticaCompra";
-            this.groupPoliticaCompra.Padding = new System.Windows.Forms.Padding(4);
-            this.groupPoliticaCompra.Size = new System.Drawing.Size(656, 54);
+            this.groupPoliticaCompra.Size = new System.Drawing.Size(492, 44);
             this.groupPoliticaCompra.TabIndex = 1;
             this.groupPoliticaCompra.TabStop = false;
             this.groupPoliticaCompra.Text = "Politica de Compra";
@@ -94,11 +92,10 @@ namespace TP4_Simulacion
             // chkDemandaDiaAnterior
             // 
             this.chkDemandaDiaAnterior.AutoSize = true;
-            this.chkDemandaDiaAnterior.Location = new System.Drawing.Point(332, 22);
-            this.chkDemandaDiaAnterior.Margin = new System.Windows.Forms.Padding(4);
+            this.chkDemandaDiaAnterior.Location = new System.Drawing.Point(249, 18);
             this.chkDemandaDiaAnterior.Name = "chkDemandaDiaAnterior";
-            this.chkDemandaDiaAnterior.Size = new System.Drawing.Size(307, 21);
-            this.chkDemandaDiaAnterior.TabIndex = 2;
+            this.chkDemandaDiaAnterior.Size = new System.Drawing.Size(229, 17);
+            this.chkDemandaDiaAnterior.TabIndex = 1;
             this.chkDemandaDiaAnterior.Text = "Comprar igual a la demanda del dia anterior";
             this.chkDemandaDiaAnterior.UseVisualStyleBackColor = true;
             this.chkDemandaDiaAnterior.CheckedChanged += new System.EventHandler(this.OnCheckBoxDemandaChange);
@@ -106,18 +103,19 @@ namespace TP4_Simulacion
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 23);
+            this.label1.Location = new System.Drawing.Point(4, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 17);
+            this.label1.Size = new System.Drawing.Size(152, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Cantidad a Comprar (docenas):";
+            this.label1.Text = "Cantidad a comprar (docenas):";
             // 
             // txtCantDocenas
             // 
-            this.txtCantDocenas.Location = new System.Drawing.Point(219, 21);
-            this.txtCantDocenas.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCantDocenas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtCantDocenas.Location = new System.Drawing.Point(164, 17);
             this.txtCantDocenas.Name = "txtCantDocenas";
-            this.txtCantDocenas.Size = new System.Drawing.Size(104, 22);
+            this.txtCantDocenas.Size = new System.Drawing.Size(79, 20);
             this.txtCantDocenas.TabIndex = 0;
             this.txtCantDocenas.Click += new System.EventHandler(this.OnClickTxtCantidadComprar);
             // 
@@ -126,22 +124,19 @@ namespace TP4_Simulacion
             this.groupBox1.Controls.Add(this.rdbCubrirFaltante);
             this.groupBox1.Controls.Add(this.rdbConCostoAdicional);
             this.groupBox1.Controls.Add(this.rdbSinCostoAdicional);
-            this.groupBox1.Location = new System.Drawing.Point(315, 118);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(236, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(172, 108);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.Size = new System.Drawing.Size(129, 88);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Politica Faltantes";
             // 
             // rdbCubrirFaltante
             // 
             this.rdbCubrirFaltante.AutoSize = true;
-            this.rdbCubrirFaltante.Location = new System.Drawing.Point(7, 75);
-            this.rdbCubrirFaltante.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbCubrirFaltante.Location = new System.Drawing.Point(5, 61);
             this.rdbCubrirFaltante.Name = "rdbCubrirFaltante";
-            this.rdbCubrirFaltante.Size = new System.Drawing.Size(118, 21);
+            this.rdbCubrirFaltante.Size = new System.Drawing.Size(90, 17);
             this.rdbCubrirFaltante.TabIndex = 2;
             this.rdbCubrirFaltante.Text = "Cubrir faltante";
             this.rdbCubrirFaltante.UseVisualStyleBackColor = true;
@@ -150,10 +145,9 @@ namespace TP4_Simulacion
             // rdbConCostoAdicional
             // 
             this.rdbConCostoAdicional.AutoSize = true;
-            this.rdbConCostoAdicional.Location = new System.Drawing.Point(7, 48);
-            this.rdbConCostoAdicional.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbConCostoAdicional.Location = new System.Drawing.Point(5, 39);
             this.rdbConCostoAdicional.Name = "rdbConCostoAdicional";
-            this.rdbConCostoAdicional.Size = new System.Drawing.Size(152, 21);
+            this.rdbConCostoAdicional.Size = new System.Drawing.Size(118, 17);
             this.rdbConCostoAdicional.TabIndex = 1;
             this.rdbConCostoAdicional.Text = "Con costo adicional";
             this.rdbConCostoAdicional.UseVisualStyleBackColor = true;
@@ -163,10 +157,9 @@ namespace TP4_Simulacion
             // 
             this.rdbSinCostoAdicional.AutoSize = true;
             this.rdbSinCostoAdicional.Checked = true;
-            this.rdbSinCostoAdicional.Location = new System.Drawing.Point(7, 21);
-            this.rdbSinCostoAdicional.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbSinCostoAdicional.Location = new System.Drawing.Point(5, 17);
             this.rdbSinCostoAdicional.Name = "rdbSinCostoAdicional";
-            this.rdbSinCostoAdicional.Size = new System.Drawing.Size(147, 21);
+            this.rdbSinCostoAdicional.Size = new System.Drawing.Size(114, 17);
             this.rdbSinCostoAdicional.TabIndex = 0;
             this.rdbSinCostoAdicional.TabStop = true;
             this.rdbSinCostoAdicional.Text = "Sin costo adicional";
@@ -176,22 +169,19 @@ namespace TP4_Simulacion
             // 
             this.groupBox2.Controls.Add(this.rdbVenderCementerio);
             this.groupBox2.Controls.Add(this.rdbDesechar);
-            this.groupBox2.Location = new System.Drawing.Point(501, 118);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(376, 96);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(172, 108);
-            this.groupBox2.TabIndex = 3;
+            this.groupBox2.Size = new System.Drawing.Size(129, 88);
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Politica Sobrantes";
             // 
             // rdbVenderCementerio
             // 
             this.rdbVenderCementerio.AutoSize = true;
-            this.rdbVenderCementerio.Location = new System.Drawing.Point(7, 50);
-            this.rdbVenderCementerio.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbVenderCementerio.Location = new System.Drawing.Point(5, 41);
             this.rdbVenderCementerio.Name = "rdbVenderCementerio";
-            this.rdbVenderCementerio.Size = new System.Drawing.Size(161, 21);
+            this.rdbVenderCementerio.Size = new System.Drawing.Size(123, 17);
             this.rdbVenderCementerio.TabIndex = 1;
             this.rdbVenderCementerio.Text = "Vender a cementerio";
             this.rdbVenderCementerio.UseVisualStyleBackColor = true;
@@ -201,10 +191,9 @@ namespace TP4_Simulacion
             // 
             this.rdbDesechar.AutoSize = true;
             this.rdbDesechar.Checked = true;
-            this.rdbDesechar.Location = new System.Drawing.Point(7, 21);
-            this.rdbDesechar.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbDesechar.Location = new System.Drawing.Point(5, 17);
             this.rdbDesechar.Name = "rdbDesechar";
-            this.rdbDesechar.Size = new System.Drawing.Size(90, 21);
+            this.rdbDesechar.Size = new System.Drawing.Size(71, 17);
             this.rdbDesechar.TabIndex = 0;
             this.rdbDesechar.TabStop = true;
             this.rdbDesechar.Text = "Desechar";
@@ -213,64 +202,63 @@ namespace TP4_Simulacion
             // lblDesdeDias
             // 
             this.lblDesdeDias.AutoSize = true;
-            this.lblDesdeDias.Location = new System.Drawing.Point(719, 107);
+            this.lblDesdeDias.Location = new System.Drawing.Point(539, 87);
+            this.lblDesdeDias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDesdeDias.Name = "lblDesdeDias";
-            this.lblDesdeDias.Size = new System.Drawing.Size(129, 17);
+            this.lblDesdeDias.Size = new System.Drawing.Size(94, 13);
             this.lblDesdeDias.TabIndex = 4;
-            this.lblDesdeDias.Text = "Ingrese Dia Desde:";
+            this.lblDesdeDias.Text = "Ingrese dia desde:";
             // 
             // txtDiaDesde
             // 
-            this.txtDiaDesde.Location = new System.Drawing.Point(855, 107);
-            this.txtDiaDesde.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiaDesde.Location = new System.Drawing.Point(641, 87);
             this.txtDiaDesde.Name = "txtDiaDesde";
-            this.txtDiaDesde.Size = new System.Drawing.Size(96, 22);
-            this.txtDiaDesde.TabIndex = 5;
+            this.txtDiaDesde.Size = new System.Drawing.Size(99, 20);
+            this.txtDiaDesde.TabIndex = 3;
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(722, 177);
-            this.btnGenerar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerar.Location = new System.Drawing.Point(542, 144);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(232, 49);
-            this.btnGenerar.TabIndex = 6;
+            this.btnGenerar.Size = new System.Drawing.Size(198, 40);
+            this.btnGenerar.TabIndex = 4;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.OnBtnGenerarClick);
             // 
             // txtPrecioCompraDocena
             // 
-            this.txtPrecioCompraDocena.Location = new System.Drawing.Point(167, 19);
-            this.txtPrecioCompraDocena.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioCompraDocena.Location = new System.Drawing.Point(125, 15);
             this.txtPrecioCompraDocena.Name = "txtPrecioCompraDocena";
-            this.txtPrecioCompraDocena.Size = new System.Drawing.Size(96, 22);
-            this.txtPrecioCompraDocena.TabIndex = 8;
+            this.txtPrecioCompraDocena.Size = new System.Drawing.Size(73, 20);
+            this.txtPrecioCompraDocena.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 24);
+            this.label2.Location = new System.Drawing.Point(4, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 17);
+            this.label2.Size = new System.Drawing.Size(117, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Precio compra docena:";
             // 
             // txtDiasAGenerar
             // 
-            this.txtDiasAGenerar.Location = new System.Drawing.Point(889, 69);
-            this.txtDiasAGenerar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiasAGenerar.Location = new System.Drawing.Point(667, 56);
             this.txtDiasAGenerar.Name = "txtDiasAGenerar";
-            this.txtDiasAGenerar.Size = new System.Drawing.Size(96, 22);
-            this.txtDiasAGenerar.TabIndex = 10;
+            this.txtDiasAGenerar.Size = new System.Drawing.Size(73, 20);
+            this.txtDiasAGenerar.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(719, 72);
+            this.label3.Location = new System.Drawing.Point(539, 58);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 17);
+            this.label3.Size = new System.Drawing.Size(125, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Cantidad Dias a Generar: ";
+            this.label3.Text = "Cantidad dias a generar: ";
             // 
             // gridRosas
             // 
@@ -294,38 +282,41 @@ namespace TP4_Simulacion
             this.colGastoFaltante,
             this.colGananciaDiaria,
             this.colGananciaAcum});
-            this.gridRosas.Location = new System.Drawing.Point(17, 259);
+            this.gridRosas.Location = new System.Drawing.Point(13, 210);
+            this.gridRosas.Margin = new System.Windows.Forms.Padding(2);
             this.gridRosas.Name = "gridRosas";
             this.gridRosas.RowHeadersVisible = false;
             this.gridRosas.RowHeadersWidth = 51;
             this.gridRosas.RowTemplate.Height = 24;
-            this.gridRosas.Size = new System.Drawing.Size(1607, 543);
+            this.gridRosas.Size = new System.Drawing.Size(1205, 441);
             this.gridRosas.TabIndex = 11;
             // 
             // txtPrecioVentaRosa
             // 
-            this.txtPrecioVentaRosa.Location = new System.Drawing.Point(167, 48);
-            this.txtPrecioVentaRosa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioVentaRosa.Location = new System.Drawing.Point(125, 39);
             this.txtPrecioVentaRosa.Name = "txtPrecioVentaRosa";
-            this.txtPrecioVentaRosa.Size = new System.Drawing.Size(96, 22);
-            this.txtPrecioVentaRosa.TabIndex = 13;
+            this.txtPrecioVentaRosa.Size = new System.Drawing.Size(73, 20);
+            this.txtPrecioVentaRosa.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 53);
+            this.label4.Location = new System.Drawing.Point(4, 43);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 17);
+            this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Precio venta rosa:";
             // 
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Location = new System.Drawing.Point(1110, 168);
+            this.lblTimer.Location = new System.Drawing.Point(539, 118);
+            this.lblTimer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(0, 17);
+            this.lblTimer.Size = new System.Drawing.Size(99, 13);
             this.lblTimer.TabIndex = 14;
+            this.lblTimer.Text = "Tiempo en generar:";
             // 
             // groupBox3
             // 
@@ -333,9 +324,11 @@ namespace TP4_Simulacion
             this.groupBox3.Controls.Add(this.txtPrecioCompraDocena);
             this.groupBox3.Controls.Add(this.txtPrecioVentaRosa);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(17, 118);
+            this.groupBox3.Location = new System.Drawing.Point(13, 96);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(291, 108);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(218, 88);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Politica Precio";
@@ -344,9 +337,10 @@ namespace TP4_Simulacion
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 11);
+            this.label5.Location = new System.Drawing.Point(9, 9);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 25);
+            this.label5.Size = new System.Drawing.Size(159, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Ejercicio 3 - Rosas";
             // 
@@ -388,6 +382,7 @@ namespace TP4_Simulacion
             this.colDemanda.HeaderText = "Demanda";
             this.colDemanda.MinimumWidth = 6;
             this.colDemanda.Name = "colDemanda";
+            this.colDemanda.ReadOnly = true;
             this.colDemanda.Width = 70;
             // 
             // colCantVenta
@@ -458,13 +453,14 @@ namespace TP4_Simulacion
             this.colGananciaAcum.MinimumWidth = 6;
             this.colGananciaAcum.Name = "colGananciaAcum";
             this.colGananciaAcum.ReadOnly = true;
-            this.colGananciaAcum.Width = 125;
+            this.colGananciaAcum.Width = 155;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1653, 814);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1228, 661);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lblTimer);
@@ -477,9 +473,12 @@ namespace TP4_Simulacion
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupPoliticaCompra);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "TP4-Simulacion / Rosas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "TP4 - Simulación (Rosas)";
             this.groupPoliticaCompra.ResumeLayout(false);
             this.groupPoliticaCompra.PerformLayout();
             this.groupBox1.ResumeLayout(false);

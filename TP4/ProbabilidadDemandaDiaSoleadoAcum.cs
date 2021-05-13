@@ -32,8 +32,5 @@ namespace TP4
             }
             return 9;
         }
-
-
-
     }
 }

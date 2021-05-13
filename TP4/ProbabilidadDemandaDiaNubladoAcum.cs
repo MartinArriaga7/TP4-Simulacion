@@ -14,7 +14,6 @@ namespace TP4
         public static double Cinco = 0.60;
         public static double Seis = 0.85;
         public static double Siete = 1;
-
         public static Int32 GetDemandaDiaNublado(double probabilidad)
         {
             Debug.Assert(probabilidad >= 0 && probabilidad < 1);
@@ -37,7 +36,5 @@ namespace TP4
             }
             return 7;
         }
-
-
     }
 }

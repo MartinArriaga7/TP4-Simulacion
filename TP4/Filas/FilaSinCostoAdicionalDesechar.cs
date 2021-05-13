@@ -10,7 +10,6 @@ namespace TP4.Filas
 {
     class FilaSinCostoAdicionalDesechar : Fila
     {
-
         public FilaSinCostoAdicionalDesechar(int dia, Random random, int cantAComprar, double costoComprarXDocena,  double precioPorDocena): base(dia, random, cantAComprar, costoComprarXDocena, precioPorDocena)
         {
             this.ingresoDiario = this.cantVenta * this.precioPorDocena;

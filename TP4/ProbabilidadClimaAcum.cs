@@ -10,9 +10,7 @@ namespace TP4
     {
         public static double SOLEADO = 0.75;
         public static double NUBLADO = 1;
-
         public enum climas { Soleado, Nublado }
-
         public static climas GetClima(double probabilidad)
         {
             if(probabilidad < SOLEADO) return climas.Soleado;
